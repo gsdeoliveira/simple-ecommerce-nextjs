@@ -10,8 +10,8 @@ type ProductProps = {
 
 const Product = ({ product }: ProductProps) => {
   return (
-    <Link href={`/product/${product.id}`}>
-      <div className='flex flex-col shadow-lg h-96 bg-slate-800 text-gray-300 p-5'>
+    <div className='flex flex-col shadow-lg h-96 bg-slate-800 text-gray-300 p-5'>
+      <Link href={`/product/${product.id}`} className='flex flex-col h-96'>
         <div className='relative max-h-72 flex-1'>
           <ProductImage product={product} fill />
         </div>
@@ -20,9 +20,9 @@ const Product = ({ product }: ProductProps) => {
           <p className='text-md text-teal-300'>{formatPrice(product.price)}</p>
           
           </div>
+      </Link>
           <AddCart product={product} />
       </div>
-    </Link>
   )
 }
 
