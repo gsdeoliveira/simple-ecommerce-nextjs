@@ -7,9 +7,10 @@ import { useState } from 'react';
 type ProductImageProps = {
   product: ProductType;
   fill?: boolean;
+  width?: number;
 }
 
-const ProductImage = ({ product, fill }: ProductImageProps) => {
+const ProductImage = ({ product, fill, width }: ProductImageProps) => {
   const [loading, setLoading] = useState(true);
   return fill ? (
    <Image 
@@ -22,7 +23,7 @@ const ProductImage = ({ product, fill }: ProductImageProps) => {
   ): ( 
     <Image 
     src={product.image} 
-    width={400}
+    width={width ? width : 400}
     height={700}
     alt={product.name} 
     className={`object-cover ${loading ? 'scale-110 blur-3xl grayscale' : 'scale-100 blur-0 grayscale-0'}`}

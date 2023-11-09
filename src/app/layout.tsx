@@ -22,11 +22,11 @@ export default function RootLayout({
 }) {
   return (
     <ClerkProvider localization={ptBR}>
-    <html lang="pt-BR">
+    <html lang="pt-BR" className='bg-slate-700'>
       <body className={clsx(inter.className, 'bg-slate-700')}>
         <Hydrate>
           <Navbar />
-          <main className=' h-screen p-16'>
+          <main className='mt-7 md:mt-0 p-3 md:p-10 lg:p-16 pb-0 bg-slate-700'>
             {children}
           </main>
         </Hydrate>

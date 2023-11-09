@@ -42,10 +42,10 @@ const InfiniteScroll = ({initialProducts}: {initialProducts: ProductType[]}) => 
     {products.map((product) => (
       <Product key={product.id} product={product} />
     ))}
-    {
-      hasMore && (
-        <div ref={ref}>
-          Carregando mais registros...
+    { hasMore &&
+       (
+        <div ref={ref} className='flex justify-center items-center p-10' style={{gridColumn: 'span 4'}}>
+          <span className="loading loading-spinner text-red-500"></span>
         </div>
       )
     }

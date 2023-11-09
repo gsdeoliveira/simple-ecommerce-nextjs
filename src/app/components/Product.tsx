@@ -1,4 +1,4 @@
-import { formatPrice } from '@/lib/utils';
+import { formatPrice } from '@/lib/formatPrice';
 import { ProductType } from '../types/ProductType'
 import ProductImage from './ProductImage';
 import AddCart from './AddCart';
@@ -10,7 +10,7 @@ type ProductProps = {
 
 const Product = ({ product }: ProductProps) => {
   return (
-    <div className='flex flex-col shadow-lg h-96 bg-slate-800 text-gray-300 p-5'>
+    <div className='flex flex-col shadow-lg h-96 bg-slate-800 text-gray-300 p-5' style={{gridColumn: 'Span 1'}}>
       <Link href={`/product/${product.id}`} className='flex flex-col h-96'>
         <div className='relative max-h-72 flex-1'>
           <ProductImage product={product} fill />

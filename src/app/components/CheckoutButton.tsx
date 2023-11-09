@@ -1,4 +1,4 @@
-import { formatPrice } from '@/lib/utils'
+import { formatPrice } from '@/lib/formatPrice'
 import { useCartStore } from '@/store'
 import { useUser } from '@clerk/nextjs';
 import { useRouter } from 'next/navigation';
