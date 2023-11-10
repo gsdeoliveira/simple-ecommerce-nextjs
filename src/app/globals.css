@@ -5,3 +5,7 @@
 :where(.menu li) {
   @apply static;
 }
+
+.span {
+  grid-column: span 4;
+}

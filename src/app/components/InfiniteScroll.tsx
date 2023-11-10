@@ -44,8 +44,8 @@ const InfiniteScroll = ({initialProducts}: {initialProducts: ProductType[]}) => 
     ))}
     { hasMore &&
        (
-        <div ref={ref} className='flex justify-center items-center p-10' style={{gridColumn: 'span 4'}}>
-          <span className="loading loading-spinner text-red-500"></span>
+        <div ref={ref} className='flex justify-center items-center p-10'>
+          <span className="loading loading-spinner text-cyan-400"></span>
         </div>
       )
     }
