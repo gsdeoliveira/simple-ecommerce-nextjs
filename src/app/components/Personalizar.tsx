@@ -25,11 +25,11 @@ const Personalizar = () => {
         <div className='text-slate-900 flex flex-col lg:flex-row gap-3'>
           <label>
             <span>Nome: </span>
-            <input type="text" placeholder='Seu Nome' className='px-2 rounded-[5px] bg-slate-100 border border-slate-900' />
+            <input type="text" placeholder='Seu Nome' className='px-2 rounded-[3px] bg-slate-100 border border-slate-900' />
           </label>
           <label>
             <span>Número: </span>
-            <input type="number" placeholder='10' className='px-2 rounded-[5px] w-16 bg-slate-100 border border-slate-900' />
+            <input type="number" placeholder='10' className='px-2 rounded-[3px] w-16 bg-slate-100 border border-slate-900' />
           </label>
         </div>
       )

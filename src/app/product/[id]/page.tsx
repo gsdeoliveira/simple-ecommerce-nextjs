@@ -38,11 +38,11 @@ const ProductPage = async ({ params: { id }}: ProductPageProps) => {
     <div className=' flex flex-col md:flex-row items-center justify-center max-w-5xl mx-auto mt-8 md:mt-10'>
       <ProductImage product={product} width={500} />
       <div className='flex flex-col items-start justify-center md:p-5 mt-5 md:mt-0 gap-3 w-full'>
-        <div className='pb-4'>
+        <div className='pb-0'>
           <h1 className='text-2xl font-bold text-slate-900'>{product.name}</h1>
           {/* <h2 className='text-xl text-cyan-400 font-bold'>{formatPrice(product.price)}</h2> */}
         </div>
-        <div className='pb-4'>
+        <div className='pb-0'>
           <p className='text-sm text-slate-800'>{product.description}</p>
         </div>
         <div className='w-full h-[0.1rem] mb-4 bg-black'></div>

@@ -8,7 +8,7 @@ import Image from 'next/image';
 
 const Navbar = () => {
   return (
-      <nav className='fixed top-0 w-full flex items-center py-2 px-3 sm:px-8 justify-between z-50 bg-gray-900 text-gray-300'>
+      <nav className='fixed top-0 w-full flex items-center py-2 px-3 sm:px-8 justify-between z-50 bg-gray-900 text-slate-100'>
         <div className='flex justify-center items-center gap-1'>
         <Image src='/burger-menu-right-svgrepo-com.svg' width={30} height={30} alt='Abrir Menu' className='md:hidden' />
         <Link href='/' className='uppercase font-bold text-md h-12 flex items-center'>
@@ -52,7 +52,7 @@ const Navbar = () => {
             </SignedIn>
             <SignedOut>
             <SignInButton mode='modal'>
-            <button className='rounded-md border border-gray-400 px-3 py-2'>Fazer Login</button>
+            <button className='rounded-md border border-slate-100 hover:bg-cyan-400 px-3 py-2'>Fazer Login</button>
             </SignInButton>
             </SignedOut>
           </div>
