@@ -3,7 +3,7 @@ import SwiperCarousel from './Swiper/Swiper';
 import Link from 'next/link';
 
 const Hero = () => {
-  const heroCarousel = [{src: '/flamengo1.png', width: 1000}, {src: '/fluminense.png'}, {src: '/flamengo4.png'}, {src: '/fortaleza.png'} ]
+  const heroCarousel = [{src: '/flamengo2.png', width: 1000}, {src: '/fluminense.png'}, {src: '/flamengo4.png'}, {src: '/fortaleza.png'} ]
   return (
     <section className='flex flex-col md:flex-row-reverse md:p-10 md:items-center md:justify-center'>
     <SwiperCarousel carouselItems={heroCarousel} slidesPerView={1}  />
