@@ -29,13 +29,13 @@ interface SwiperCarouselProps {
 export default function SwiperTimes({ carouselItems }: SwiperCarouselProps) {
   const breakpoints = {
     320: {
-      slidesPerView: 3,
+      slidesPerView: 2,
     },
     640: {
-      slidesPerView: 4,
+      slidesPerView: 3,
     },
     1024: {
-      slidesPerView: 5,
+      slidesPerView: 4,
     },
   };
   return (
@@ -49,8 +49,8 @@ export default function SwiperTimes({ carouselItems }: SwiperCarouselProps) {
       >
         {carouselItems.map((item) => (
           <SwiperSlide key={item.src}>
-            <Link href={`/times/${item.time}`} className='w-[100%] flex flex-col mx-1 p-3 rounded-xl cursor-pointer transition-all hover:text-slate-900 hover:bg-cyan-400 bg-slate-900'>
-            <Image src={item.src} width={item.width || 700} height={item.height || 500} alt={item.src} />
+            <Link href={`/times/${item.time}`} className='w-[100%] flex flex-col max-h-[24rem] mx-1 p-3 rounded-xl cursor-pointer transition-all hover:text-slate-900 hover:bg-cyan-400 bg-slate-900'>
+            <div className='h-[70%]'><Image src={item.src} width={item.width || 700} height={item.height || 700} alt={item.src} className='' /></div>
             <p className='text-slate-100 text-sm capitalize'>{item.time}</p>
             </Link>
           </SwiperSlide>

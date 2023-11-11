@@ -32,7 +32,7 @@ export default function SwiperCarousel({ carouselItems, slidesPerView, children 
       <Swiper slidesPerView={slidesPerView} navigation={true} modules={[Navigation, Autoplay]} loop={true} autoplay={{ delay: 3000 }} className="mySwiper md:w-1/2">
         {carouselItems.map((item) => (
           <SwiperSlide key={item.src}>
-            <Image src={item.src} width={item.width || 700} height={item.height || 500} alt={item.src} />
+            <Image src={item.src} width={item.width || 700} height={item.height || 500} alt={item.src} priority />
             {children}
           </SwiperSlide>
         ))}

@@ -47,7 +47,7 @@ export default function SwiperDestaque({ carouselItems }: SwiperCarouselProps) {
           <SwiperSlide key={item.id}>
             <div className='w-[100%] mb-10 overflow-hidden min-h-72 flex flex-col mx-1 rounded-xl cursor-pointer transition-all hover:text-slate-900 hover:bg-slate-900 group bg-slate-100 shadow-xl'>
             <Link href={`/product/${item.id}`} >
-            <Image src={item.image} width={700} height={500} alt={item.description!} />
+            <Image src={item.image} width={700} height={500} alt={item.description!} priority />
             <p className='text-slate-900 group-hover:text-slate-100 text-sm  truncate p-2 text-start' title={item.description!}>{item.description}</p>
             <p className='text-md text-start font-bold transition-all p-2 text-cyan-400'>{formatPrice(item.price)}</p>
             <p className='text-sm text-start  p-2 text-slate-900 group-hover:text-slate-100'>Em até <span className='font-bold'>12x</span> de <span className='font-bold text-cyan-400'>{formatPrice(item.price! / 12)}</span></p>

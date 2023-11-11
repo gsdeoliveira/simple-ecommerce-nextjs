@@ -8,7 +8,7 @@ import { useInView } from 'react-intersection-observer';
 
 const InfiniteScroll = ({initialProducts, time, next_page}: {initialProducts: ProductType[], time?: string, next_page: string | undefined}) => {
   const [products, setProducts] = useState<ProductType[]>(initialProducts);
-  const [hasMore, setHasMore] = useState<boolean>(true);
+  const [hasMore, setHasMore] = useState<boolean>(false);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [nextPage, setNextPage] = useState<string | undefined>(next_page);
   const [ref, inView] = useInView({
@@ -20,7 +20,9 @@ const InfiniteScroll = ({initialProducts, time, next_page}: {initialProducts: Pr
     const { formatedProducts, has_more, next_page } = await searchProducts({time: time, nextPage: nextPage});
 
     if(formatedProducts) {
-      setNextPage(next_page ? next_page: undefined);
+      if(next_page) {
+        setNextPage(next_page);
+      }
       setProducts((prevProducts) => [...prevProducts, ...formatedProducts]);
       setHasMore(has_more);
     }
