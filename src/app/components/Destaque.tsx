@@ -28,7 +28,7 @@ const Destaque = async () => {
     return (
     <section className='mb-5'>
       <div className='flex justify-between items-center font-bold p-2'>
-      <h2 className='text-xl sm:text-2xl md:text-3xl my-5'>Em Destaque</h2>
+      <Link href='/destaque'><h2 className='text-xl sm:text-2xl md:text-3xl my-5'>Em Destaque</h2></Link>
       <Link href='/destaque' className='font-md'>Ver Mais</Link>
       </div>
       <SwiperDestaque carouselItems={formatedProducts} />
