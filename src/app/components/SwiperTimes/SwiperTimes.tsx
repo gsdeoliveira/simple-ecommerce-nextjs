@@ -11,11 +11,13 @@ import './styles.css';
 // import required modules
 import { Navigation } from 'swiper/modules';
 import Image from 'next/image';
+import Link from 'next/link';
 
 // ...
 
 type CarouselItem = {
   src: string;
+  time: string;
   width?: number;
   height?: number;
 };
@@ -47,10 +49,10 @@ export default function SwiperTimes({ carouselItems }: SwiperCarouselProps) {
       >
         {carouselItems.map((item) => (
           <SwiperSlide key={item.src}>
-            <div className='w-[100%] flex flex-col mx-1 p-3 rounded-xl cursor-pointer transition-all hover:text-slate-900 hover:bg-cyan-400 bg-slate-900'>
+            <Link href={`/times/${item.time}`} className='w-[100%] flex flex-col mx-1 p-3 rounded-xl cursor-pointer transition-all hover:text-slate-900 hover:bg-cyan-400 bg-slate-900'>
             <Image src={item.src} width={item.width || 700} height={item.height || 500} alt={item.src} />
-            <p className='text-slate-100 text-sm'>Flamengo</p>
-            </div>
+            <p className='text-slate-100 text-sm capitalize'>{item.time}</p>
+            </Link>
           </SwiperSlide>
         ))}
       </Swiper>

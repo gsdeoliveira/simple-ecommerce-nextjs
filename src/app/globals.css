@@ -9,3 +9,11 @@
 .span {
   grid-column: span 4;
 }
+
+.tamanho label input:checked ~ span {
+  @apply bg-cyan-400
+}
+
+.personalizar label input:checked ~ span {
+  @apply bg-cyan-400
+}

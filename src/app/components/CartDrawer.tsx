@@ -15,10 +15,10 @@ const CartDrawer = () => {
 
   return (
     <div className='fixed w-full h-screen bg-black/25 left-0 top-0 z-50' onClick={() => useStore.toggleCart()}>
-    <div className='absolute bg-slate-600 right-0 top-0 w-full min-[480px]:w-[80%] sm:w-[55%] lg:w-1/3 h-screen p-3 md:p-5 lg:p-8 overflow-y-scroll' onClick={(e) => e.stopPropagation()}>
+    <div className='absolute bg-slate-900 right-0 top-0 w-full min-[480px]:w-[80%] sm:w-[55%] lg:w-1/3 h-screen p-3 md:p-5 lg:p-8 overflow-y-scroll' onClick={(e) => e.stopPropagation()}>
 
-    <button className='font-bold text-sm text-teal-600' onClick={() => useStore.toggleCart()}>Voltar para loja</button>
-    <div className='border-t border-gray-400 my-4'></div>
+    <button className='font-bold text-sm text-cyan-400' onClick={() => useStore.toggleCart()}>Voltar para loja</button>
+    <div className='border-t text-slate-900 my-4'></div>
     { useStore.onCheckout === 'cart' && (
       useStore.cart.map((item) => (
         <div key={item.id} className='flex gap-4 py-4'>
@@ -32,7 +32,7 @@ const CartDrawer = () => {
           <div className='w-full'>
             <h2 className='w-[100%] whitespace-normal'>{item.name}</h2>
             <h2>Quantidade: {item.quantity}</h2>
-            <p className='text-sm text-teal-600 font-bold'>{formatPrice(item.price)}</p>
+            <p className='text-sm text-cyan-400 font-bold'>{formatPrice(item.price)}</p>
             <button className='py-1 px-2 border rounded-md mt-2 text-sm' onClick={() => useStore.addProduct(item)}>Adicionar</button>
             <button className='py-1 px-2 border rounded-md mt-2 text-sm ml-1' onClick={() => useStore.removeProduct(item)}>Remover</button>
           </div> 

@@ -23,8 +23,8 @@ const CheckoutButton = ({ totalPrice }: CheckoutButtonProps) => {
 
   return (
     <div>
-    <p className='text-teal-600 font-bold'>Total: {formatPrice(totalPrice)}</p>
-    <button className='w-full rounded-md bg-teal-600 text-white py-2 mt-2' onClick={handleCheckout}>Finalizar Compra</button>
+    <p className='text-slate-100 font-bold'>Total: <span className='text-cyan-400'>{formatPrice(totalPrice)}</span></p>
+    <button className='w-full rounded-md bg-cyan-400 text-white py-2 mt-2' onClick={handleCheckout}>Finalizar Compra</button>
   </div>
 
   )

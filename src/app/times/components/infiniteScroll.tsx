@@ -1,32 +1,33 @@
 "use client";
 
+import { searchProducts } from '@/app/actions';
+import Product from '@/app/components/Product';
+import { ProductType } from '@/app/types/ProductType';
 import { useCallback, useEffect, useState } from 'react';
-import { ProductType } from '../types/ProductType';
-import Product from './Product';
 import { useInView } from 'react-intersection-observer';
-import { fetchProducts } from '../actions';
 
-const InfiniteScroll = ({initialProducts, time}: {initialProducts: ProductType[], time?: boolean}) => {
+const InfiniteScroll = ({initialProducts, time, next_page}: {initialProducts: ProductType[], time?: string, next_page: string | undefined}) => {
   const [products, setProducts] = useState<ProductType[]>(initialProducts);
   const [hasMore, setHasMore] = useState<boolean>(true);
   const [isLoading, setIsLoading] = useState<boolean>(false);
+  const [nextPage, setNextPage] = useState<string | undefined>(next_page);
   const [ref, inView] = useInView({
     threshold: 0,
     triggerOnce: false,
   });
 
-  const lastProductId = products[products.length - 1]?.id;
-
   const loadMoreProducts = useCallback(async () => {
-    const { formatedProducts, has_more } = await fetchProducts({ lastProductId });
+    const { formatedProducts, has_more, next_page } = await searchProducts({time: time, nextPage: nextPage});
 
     if(formatedProducts) {
+      setNextPage(next_page ? next_page: undefined);
       setProducts((prevProducts) => [...prevProducts, ...formatedProducts]);
       setHasMore(has_more);
     }
 
+
     setIsLoading(false);
-  }, [lastProductId]);
+  }, [nextPage, time]);
 
   useEffect(() => {
     if (inView && hasMore && !isLoading) {

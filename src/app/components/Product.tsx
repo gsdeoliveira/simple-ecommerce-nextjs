@@ -1,8 +1,8 @@
 import { formatPrice } from '@/lib/formatPrice';
 import { ProductType } from '../types/ProductType'
-import ProductImage from './ProductImage';
 import AddCart from './AddCart';
 import Link from 'next/link';
+import Image from 'next/image';
 
 type ProductProps = {
   product: ProductType;
@@ -10,20 +10,15 @@ type ProductProps = {
 
 const Product = ({ product }: ProductProps) => {
   return (
-    <div className='flex flex-col shadow-lg h-[30rem] sm:h-96 bg-slate-800 text-gray-300 p-5'>
-      <Link href={`/product/${product.id}`} className='flex flex-col h-96'>
-        <div className='relative max-h-90 flex-1'>
-          <ProductImage product={product} fill />
-        </div>
-        <div className='flex justify-between font-bold my-3'>
-          <p className='w-40 truncate'>{product.name}</p>
-          <p className='text-md text-teal-300'>{formatPrice(product.price)}</p>
-          
-          </div>
-      </Link>
-          <AddCart product={product} />
-      </div>
-  )
+    <div className='w-[100%] mb-10 overflow-hidden min-h-72 flex flex-col mx-1 rounded-xl cursor-pointer transition-all hover:text-slate-900 hover:bg-slate-900 group bg-slate-100 shadow-xl'>
+    <Link href={`/product/${product.id}`} >
+    <Image src={product.image} width={700} height={500} alt={product.description!} priority />
+    <p className='text-slate-900 group-hover:text-slate-100 text-sm  truncate p-2 text-start' title={product.description!}>{product.name}</p>
+    <p className='text-md text-start font-bold transition-all p-2 text-cyan-400'>{formatPrice(product.price)}</p>
+    <p className='text-sm text-start  p-2 text-slate-900 group-hover:text-slate-100'>Em até <span className='font-bold'>12x</span> de <span className='font-bold text-cyan-400'>{formatPrice(product.price! / 12)}</span></p>
+    </Link>
+    </div>
+)
 }
 
 export default Product
