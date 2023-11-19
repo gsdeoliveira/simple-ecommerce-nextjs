@@ -1,7 +1,6 @@
-import { create } from 'zustand';
-import { persist } from 'zustand/middleware';
-import { ProductType } from './app/types/ProductType';
-
+import { create } from "zustand";
+import { persist } from "zustand/middleware";
+import { ProductType } from "./app/types/ProductType";
 
 type CartState = {
   cart: ProductType[];
@@ -15,47 +14,64 @@ type CartState = {
   setPaymentIntent: (PaymentIntent: string) => void;
 };
 
-export const useCartStore = create<CartState>()(
-  persist((set) => ({
-    cart: [],
-    addProduct: (item) =>
-    set((state) => {
-      const product = state.cart.find((p) => p.id === item.id);
-      if (product) {
-        const updatedCart = state.cart.map((p) => {
-          if (p.id === item.id) {
-            return {...p, quantity: p.quantity ? p.quantity + 1: 1}
-          }
-          return p;
-        })
-        return { cart: updatedCart }
-      } else {
-        return { cart: [...state.cart, { ...item, quantity: 1}]}
-      }
-    }),
-    removeProduct: (item) =>
-    set((state) => {
-      const existingProduct = state.cart.find((p) => p.id === item.id);
+type MenuMobile = {
+  isOpen: boolean;
+  toggleMenu: () => void;
+};
 
-      if(existingProduct && existingProduct.quantity! > 1) {
-        const updatedCart = state.cart.map((p) => {
-          if (p.id === item.id) {
-            return {...p, quantity: p.quantity! - 1}
-          }
-          return p;
-        });
-        return { cart: updatedCart };
-      } else {
-        const filteredCard = state.cart.filter((p) => p.id !== item.id);
-        return {cart: filteredCard}
-      }
-      
+export const useMenu = create<MenuMobile>()(
+  persist(
+    (set) => ({
+      isOpen: false,
+      toggleMenu: () => set((state) => ({ isOpen: !state.isOpen })),
     }),
-    isOpen: false,
-    toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
-    onCheckout: 'cart',
-    setCheckout: (checkout) => set(() => ({ onCheckout: checkout})),
-    paymentIntent: '',
-    setPaymentIntent: (paymentIntent) => set(() => ({ paymentIntent }))
-  }), { name: 'cart-storage'}),
+    { name: "menu-mobile" }
+  )
+);
+
+export const useCartStore = create<CartState>()(
+  persist(
+    (set) => ({
+      cart: [],
+      addProduct: (item) =>
+        set((state) => {
+          const product = state.cart.find((p) => p.id === item.id);
+          if (product) {
+            const updatedCart = state.cart.map((p) => {
+              if (p.id === item.id) {
+                return { ...p, quantity: p.quantity ? p.quantity + 1 : 1 };
+              }
+              return p;
+            });
+            return { cart: updatedCart };
+          } else {
+            return { cart: [...state.cart, { ...item, quantity: 1 }] };
+          }
+        }),
+      removeProduct: (item) =>
+        set((state) => {
+          const existingProduct = state.cart.find((p) => p.id === item.id);
+
+          if (existingProduct && existingProduct.quantity! > 1) {
+            const updatedCart = state.cart.map((p) => {
+              if (p.id === item.id) {
+                return { ...p, quantity: p.quantity! - 1 };
+              }
+              return p;
+            });
+            return { cart: updatedCart };
+          } else {
+            const filteredCard = state.cart.filter((p) => p.id !== item.id);
+            return { cart: filteredCard };
+          }
+        }),
+      isOpen: false,
+      toggleCart: () => set((state) => ({ isOpen: !state.isOpen })),
+      onCheckout: "cart",
+      setCheckout: (checkout) => set(() => ({ onCheckout: checkout })),
+      paymentIntent: "",
+      setPaymentIntent: (paymentIntent) => set(() => ({ paymentIntent })),
+    }),
+    { name: "cart-storage" }
+  )
 );

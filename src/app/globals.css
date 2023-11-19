@@ -11,9 +11,22 @@
 }
 
 .tamanho label input:checked ~ span {
-  @apply bg-cyan-400
+  @apply bg-cyan-400;
 }
 
 .personalizar label input:checked ~ span {
-  @apply bg-cyan-400
+  @apply bg-cyan-400;
+}
+
+.menuAnimation {
+  animation: menu-animation 200ms ease-in-out;
+}
+
+@keyframes menu-animation {
+  0% {
+    margin-left: -100%;
+  }
+  100% {
+    margin-left: 0;
+  }
 }
