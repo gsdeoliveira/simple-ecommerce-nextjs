@@ -4,7 +4,7 @@ import Link from "next/link";
 import Cart from "./Cart";
 import Image from "next/image";
 import DesktopMenu from "./DesktopMenu";
-import MobileMenu from "./MobileMenu";
+import MobileMenu from "./MenuMobile/MobileMenu";
 import { useMenu } from "@/store";
 
 const Navbar = () => {

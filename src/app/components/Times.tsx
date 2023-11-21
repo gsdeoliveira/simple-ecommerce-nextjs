@@ -1,9 +1,9 @@
 import React from 'react'
 import SwiperTimes from './SwiperTimes/SwiperTimes';
-import Link from 'next/link';
+import { times } from '@/constants/times';
 
 const Times = () => {
-  const timesCarousel = [{src: '/times_flamengo.png', time: 'flamengo'}, {src: '/times_fortaleza.png', time: 'fortaleza'}, {src: '/times_cruzeiro.png', time: 'cruzeiro'}, {src: '/times_corinthians.png', time: 'corinthians'}, {src: '/times_ceara.png', time: 'ceara'},];
+  const timesCarousel = times;
   return (
     <section className='mb-5'>
       <div className='flex justify-between items-center font-bold p-2'>
