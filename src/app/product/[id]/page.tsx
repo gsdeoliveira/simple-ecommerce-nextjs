@@ -16,7 +16,6 @@ async function getProduct(id: string) {
   });
 
   const product = await stripe.products.retrieve(id);
-  console.log(product);
   const price = await stripe.prices.list({
     product: product.id,
   });

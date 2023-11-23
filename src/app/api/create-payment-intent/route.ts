@@ -14,8 +14,6 @@ export async function POST(req: Request) {
   const { userId } = auth();
   const { items, payment_intent_id } = await req.json();
 
-  console.log(userId);
-
   if (!userId) {
     return new Response('Acesso não autorizado', { status: 401 })
   }
