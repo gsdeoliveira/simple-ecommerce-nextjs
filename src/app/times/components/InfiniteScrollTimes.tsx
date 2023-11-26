@@ -6,9 +6,9 @@ import { ProductType } from '@/app/types/ProductType';
 import { useCallback, useEffect, useState } from 'react';
 import { useInView } from 'react-intersection-observer';
 
-const InfiniteScrollTimes = ({initialProducts, time, next_page}: {initialProducts: ProductType[], time?: string, next_page: string | undefined}) => {
+const InfiniteScrollTimes = ({initialProducts, time, next_page, has_more}: {initialProducts: ProductType[], time?: string, next_page: string | undefined, has_more: boolean}) => {
   const [products, setProducts] = useState<ProductType[]>(initialProducts);
-  const [hasMore, setHasMore] = useState<boolean>(false);
+  const [hasMore, setHasMore] = useState<boolean>(has_more);
   const [isLoading, setIsLoading] = useState<boolean>(false);
   const [nextPage, setNextPage] = useState<string | undefined>(next_page);
   const [ref, inView] = useInView({
@@ -55,4 +55,4 @@ const InfiniteScrollTimes = ({initialProducts, time, next_page}: {initialProduct
   )
 }
 
-export default InfiniteScrollTimes
+export default InfiniteScrollTimes 

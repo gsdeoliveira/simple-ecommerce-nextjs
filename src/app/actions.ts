@@ -26,7 +26,7 @@ export async function fetchProducts( {lastProductId}: { lastProductId?: string |
 
 export async function searchProducts({time, nextPage}: {time: string | undefined, nextPage?: string | undefined}) {
   const {data: products, has_more, next_page } = await stripe.products.search({
-    query: `metadata['time']:'${time}'`, limit: 12, page: nextPage ? nextPage : undefined
+    query: `metadata['time']:'${time}'`, limit: 4, page: nextPage ? nextPage : undefined,
   });
 
   const formatedProducts = await Promise.all(

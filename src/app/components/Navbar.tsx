@@ -29,6 +29,7 @@ const Navbar = () => {
             width={100}
             height={48}
             alt="Dazanta"
+            priority
             className="mb-2"
           />
         </Link>
