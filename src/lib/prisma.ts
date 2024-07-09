@@ -1,5 +1,6 @@
 import { PrismaClient  } from '@prisma/client';
 
+//teste git
 declare global {
   var prisma: PrismaClient | undefined;
 }
